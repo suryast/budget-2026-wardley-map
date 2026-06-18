@@ -552,7 +552,7 @@ export const comparisonMethodology = {
   evenHandedness:
     'The compare view presents each party’s case in its own framing. Divergence classes describe the relationship between positions; they do not tell the reader which side is correct. The fact-check view evaluates checkable claims from both parties and links out when factual-au already covers the claim.',
   updateNote:
-    'Last updated: 20 May 2026 UTC. Coalition reply positions predate legislation and may change if the opposition revises detail later.',
+    'Last updated: 18 June 2026 UTC. Added the ABC-reported small-business/startup CGT carve-out consultation as a policy-update log item; Coalition reply positions still predate later legislative and consultation detail unless explicitly sourced otherwise.',
 }
 
 export const inferenceLog: InferenceLogEntry[] = [
