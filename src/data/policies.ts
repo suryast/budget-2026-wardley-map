@@ -152,10 +152,10 @@ const rawPolicies = [
     anchorNeed:
       'Affordable home ownership for working-age Australians and intergenerational tax fairness.',
     summary:
-      'Generational rewrite. From 1 July 2027 the 50% CGT discount is replaced with cost-base indexation plus a 30% minimum tax on real capital gains. Negative gearing is limited to new builds for properties bought after 7:30pm AEST 12 May 2026; existing investors are grandfathered.',
+      'Generational rewrite, now with carve-outs. From 1 July 2027 the 50% CGT discount is replaced with cost-base indexation plus a 30% minimum tax on real capital gains, but the government has since proposed expanding the small-business active asset discount threshold to $10m turnover and consulting on a startup carve-out for founders, early investors and ESS employees. Negative gearing is limited to new builds for properties bought after 7:30pm AEST 12 May 2026; existing investors are grandfathered.',
     cardSummary: 'Housing tax preferences are narrowed to shift capital away from existing homes.',
     stakeholders:
-      'Government framed it as worth any near-term political cost. Grattan, ACOSS, and The Australia Institute endorsed. Property Council is conditionally supportive if the new-build incentive works; REIA is hostile and modelled roughly 25,500 fewer homes over five years. Coalition says it will repeal the package if elected. Greens call it tinkering. Wayne Swan publicly criticised the CGT competitiveness impact.',
+      'Government framed it as worth any near-term political cost, then moved to contain backlash from startups and small business through carve-outs announced on 18 June. Grattan, ACOSS, and The Australia Institute endorsed the original direction. Property Council is conditionally supportive if the new-build incentive works; REIA is hostile and modelled roughly 25,500 fewer homes over five years. Coalition says it will repeal the package if elected. Greens call it tinkering. Wayne Swan publicly criticised the CGT competitiveness impact.',
     evidence:
       'Treasury models roughly a 2% house-price effect. Grattan estimates more than $20 billion a year in deficit reduction within a decade. The PBO costed the CGT discount at $247 billion over the next ten years. Treasury data says 89% of CGT discount benefits went to the top 20% of income earners in 2022-23.',
     sentiment:
@@ -164,6 +164,7 @@ const rawPolicies = [
       'Legislative amendment to the new-build definition, likely pushed by the Property Council.',
       'Senate negotiation outcome, especially if Greens trade support for renter protections.',
       'Behavioural overshoot from a pre-July-2027 rush of asset sales.',
+      'Drafting of the $10m active asset threshold and the startup carve-out eligibility tests for “new, innovative” businesses.',
     ],
     pressurePoints: [
       'Shares the Treasury revenue model with Policies 2 and 6.',
@@ -179,6 +180,7 @@ const rawPolicies = [
       { id: 'newbuild-def', label: 'New-build definition', x: 0.2, y: 0.55, stage: 'experimental' },
       { id: 'loss-quarantine', label: 'Loss quarantining + carry-forward', x: 0.5, y: 0.55, stage: 'emerging' },
       { id: 'btr-carveout', label: 'BTR / new-build / SMSF carve-outs', x: 0.55, y: 0.55, stage: 'emerging' },
+      { id: 'small-business-startup-carveout', label: 'Small-business / startup CGT carve-outs', x: 0.25, y: 0.48, stage: 'experimental', movement: 'build' },
       { id: 'treasury-model', label: 'Treasury revenue model', x: 0.45, y: 0.3, stage: 'emerging', sharedGroup: 'treasury-model' },
       { id: 'inflation-index', label: 'Inflation index (cost-base)', x: 0.92, y: 0.2, stage: 'settled' },
       { id: 'ato-systems', label: 'ATO assessment systems', x: 0.88, y: 0.3, stage: 'settled', sharedGroup: 'ato' },
@@ -192,6 +194,7 @@ const rawPolicies = [
       { from: 'ng-restriction', to: 'newbuild-def' },
       { from: 'ng-restriction', to: 'loss-quarantine' },
       { from: 'ng-restriction', to: 'btr-carveout' },
+      { from: 'cgt-mintax', to: 'small-business-startup-carveout' },
       { from: 'cgt-mintax', to: 'grandfathering' },
       { from: 'cgt-mintax', to: 'inflation-index' },
       { from: 'cgt-mintax', to: 'treasury-model' },
@@ -199,7 +202,7 @@ const rawPolicies = [
       { from: 'loss-quarantine', to: 'ato-systems' },
       { from: 'ato-systems', to: 'land-titles' },
     ],
-    citationKeys: ['budget-gov', 'grattan-budget', 'pbo-cgt', 'property-council', 'reia', 'greens-budget', 'newspoll', 'resolve'],
+    citationKeys: ['budget-gov', 'abc-cgt-carveouts', 'grattan-budget', 'pbo-cgt', 'property-council', 'reia', 'greens-budget', 'newspoll', 'resolve'],
   },
   {
     id: 'div-296',
@@ -439,7 +442,7 @@ const rawPolicies = [
     title: 'Productivity & Tax Architecture',
     anchorNeed: 'A tax and regulatory system that rewards productive investment and lifts living standards.',
     summary:
-      'The other half of the tax narrative. R&D Tax Incentive reform from 1 July 2028, a permanent $20,000 instant asset write-off from 1 July 2026, two-year loss carry-back, startup loss refundability from 2028, VC threshold uplifts, $10.2 billion a year in regulatory reduction, a National Productivity Fund for state payroll tax harmonisation, 497 nuisance tariffs abolished, and $654.3 million for Digital ID expansion.',
+      'The other half of the tax narrative. R&D Tax Incentive reform from 1 July 2028, a permanent $20,000 instant asset write-off from 1 July 2026, two-year loss carry-back, startup loss refundability from 2028, VC threshold uplifts, a small-business/startup CGT carve-out track, $10.2 billion a year in regulatory reduction, a National Productivity Fund for state payroll tax harmonisation, 497 nuisance tariffs abolished, and $654.3 million for Digital ID expansion.',
     cardSummary: 'Low-salience but high-leverage reforms aimed at firm investment, compliance, and state coordination.',
     stakeholders:
       'BCA strongly supports the package and explicitly thanked the government for not introducing a cashflow tax or gas export tax. Ai Group and the Alliance of Industry Associations are positive. KPMG, Ashurst, and BDO caution that the R&D reforms need careful drafting. Small business is pleased by the instant asset write-off and loss carry-back; medium businesses feel squeezed. Greens are hostile to the corporate-tax-cuts framing.',
@@ -464,6 +467,7 @@ const rawPolicies = [
       { id: 'loss-carryback', label: 'Two-year loss carry-back', x: 0.55, y: 0.72, stage: 'established' },
       { id: 'loss-refund', label: 'Loss refundability for startups', x: 0.3, y: 0.7, stage: 'emerging', movement: 'build' },
       { id: 'vc-thresholds', label: 'VCLP/ESVCLP threshold uplift', x: 0.6, y: 0.65, stage: 'established' },
+      { id: 'startup-cgt-carveout', label: 'Startup CGT carve-out consultation', x: 0.38, y: 0.64, stage: 'experimental', movement: 'build' },
       { id: 'red-tape', label: '$10.2bn/yr regulatory reduction', x: 0.6, y: 0.6, stage: 'established' },
       { id: 'payroll-harmonise', label: 'State payroll tax harmonisation', x: 0.15, y: 0.55, stage: 'experimental', movement: 'build', sharedGroup: 'state-revenue' },
       { id: 'tariff-abolish', label: '497 nuisance tariffs abolished', x: 0.92, y: 0.55, stage: 'settled' },
@@ -479,6 +483,7 @@ const rawPolicies = [
       { from: 'voter', to: 'loss-carryback' },
       { from: 'voter', to: 'loss-refund' },
       { from: 'voter', to: 'vc-thresholds' },
+      { from: 'voter', to: 'startup-cgt-carveout' },
       { from: 'voter', to: 'red-tape' },
       { from: 'voter', to: 'tariff-abolish' },
       { from: 'rd-reform', to: 'treasury-model' },
@@ -487,6 +492,7 @@ const rawPolicies = [
       { from: 'loss-carryback', to: 'treasury-model' },
       { from: 'loss-refund', to: 'treasury-model' },
       { from: 'vc-thresholds', to: 'ato-systems' },
+      { from: 'startup-cgt-carveout', to: 'ato-systems' },
       { from: 'red-tape', to: 'productivity-fund' },
       { from: 'red-tape', to: 'digital-id' },
       { from: 'payroll-harmonise', to: 'productivity-fund' },
@@ -494,7 +500,7 @@ const rawPolicies = [
       { from: 'productivity-fund', to: 'state-revenue' },
       { from: 'digital-id', to: 'ato-systems' },
     ],
-    citationKeys: ['budget-gov', 'cba-budget'],
+    citationKeys: ['budget-gov', 'abc-cgt-carveouts', 'cba-budget'],
   },
   {
     id: 'energy',

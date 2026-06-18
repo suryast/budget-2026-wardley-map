@@ -17,6 +17,7 @@ export type CitationKey =
   | 'guardian-budget-reply'
   | 'abc-housing-cap'
   | 'abc-values-plan'
+  | 'abc-cgt-carveouts'
   | 'grattan-welfare-citizenship'
   | 'smsf-div296-article'
 
@@ -114,6 +115,11 @@ export const citationLibrary: Record<CitationKey, Citation> = {
     key: 'abc-values-plan',
     source: 'ABC News, Coalition Australian values migration plan, 14 April 2026',
     url: 'https://www.abc.net.au/news/2026-04-14/angus-taylor-coalition-migration-policy-plan-australian-values/106563718',
+  },
+  'abc-cgt-carveouts': {
+    key: 'abc-cgt-carveouts',
+    source: 'ABC News, capital gains carve-outs for small businesses and startups, 18 Jun 2026',
+    url: 'https://www.abc.net.au/news/2026-06-18/capital-gains-tax-concessions-for-startups-and-small-business/106812782',
   },
   'grattan-welfare-citizenship': {
     key: 'grattan-welfare-citizenship',
